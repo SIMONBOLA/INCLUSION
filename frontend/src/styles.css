@@ -1,0 +1,219 @@
+/* ========= VARIABLES GLOBALES ========= */
+:root {
+  --color-bg: #0f0f0f;
+  --color-surface: #1a1a1a;
+  --color-border: #333333;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #cccccc;
+  --color-accent: #888888;
+  --color-gradient: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+  --font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  --spacing: 2rem;
+  --transition: all 0.3s ease-in-out;
+}
+
+/* ========= BASE GLOBAL ========= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background: var(--color-gradient);
+  color: var(--color-text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing);
+}
+
+/* ========= NAVBAR ========= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #111111;
+  padding: var(--spacing);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.navbar ul {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar a {
+  color: var(--color-text-primary);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.navbar a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/* ========= HERO SECTION ========= */
+.hero {
+  min-height: 60vh;
+  background: linear-gradient(135deg, #111, #222);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: var(--spacing);
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+  color: var(--color-text-primary);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+}
+
+.hero .btn {
+  background: var(--color-text-primary);
+  color: var(--color-bg);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.hero .btn:hover {
+  background: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* ========= CARDS ========= */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: var(--spacing);
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  color: var(--color-text-secondary);
+  margin-bottom: 1rem;
+}
+
+.card .btn {
+  background: var(--color-text-primary);
+  color: var(--color-bg);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.card .btn:hover {
+  background: var(--color-accent);
+}
+
+/* ========= BUTTONS ========= */
+.btn {
+  background: var(--color-text-primary);
+  color: var(--color-bg);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btn:hover {
+  background: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+/* ========= FOOTER ========= */
+.footer {
+  background: #000000;
+  color: var(--color-text-secondary);
+  padding: var(--spacing);
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+}
+
+.footer a {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  margin: 0 0.5rem;
+  transition: var(--transition);
+}
+
+.footer a:hover {
+  color: var(--color-accent);
+}
+
+/* ========= RESPONSIVE DESIGN ========= */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+}
