@@ -1,0 +1,83 @@
+/* Layout base */
+.page-wrapper {
+  display: flex;
+  min-height: 100vh;
+  background: var(--background-color);
+  padding-left: var(--sidebar-width);
+  width: 100%;
+}
+
+.dashboard-content {
+  flex: 1;
+  width: 100%;
+  padding: var(--main-spacing);
+  overflow-x: hidden;
+  position: relative;
+}
+
+.content-area {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 var(--main-spacing);
+}
+
+/* Grid de contenido */
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--main-spacing);
+  margin-top: var(--main-spacing);
+}
+
+/* Tarjetas y secciones */
+.section-card {
+  background: var(--color-surface);
+  border-radius: 12px;
+  padding: var(--main-spacing);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 1024px) {
+  .page-wrapper {
+    padding-left: var(--sidebar-width-collapsed);
+  }
+  
+  .content-area {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-wrapper {
+    padding-left: 0;
+  }
+
+  .dashboard-content {
+    padding: 1rem;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Ajustes para el scroll */
+.dashboard-content::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.dashboard-content::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+
+.dashboard-content::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 4px;
+}
+
+.dashboard-content::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
