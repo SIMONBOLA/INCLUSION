@@ -1,4 +1,4 @@
-const db = require('../db');
+const { pool } = require('../db');
 const bcrypt = require('bcrypt');
 
 /**
@@ -16,7 +16,7 @@ const initializeUsersTable = async () => {
     );
   `;
   
-  const client = await db.pool.connect();
+  const client = await pool.connect();
   try {
     await client.query(query);
     console.log('Tabla users inicializada correctamente');
@@ -38,7 +38,7 @@ const initializeUsersTable = async () => {
  * @returns {Object} - Objeto con los datos del usuario creado.
  */
 const createUser = async ({ username, password, nombre, role }) => {
-  const client = await db.pool.connect();
+  const client = await pool.connect();
   try {
     await client.query('BEGIN');
     
@@ -79,7 +79,7 @@ const createUser = async ({ username, password, nombre, role }) => {
  * @returns {Object|null} - Objeto con los datos del usuario o null si no existe.
  */
 const findUserByUsername = async (username) => {
-  const result = await db.query(
+  const result = await pool.query(
     'SELECT id, username, password_hash, nombre, role, created_at FROM users WHERE username = $1',
     [username]
   );
@@ -92,7 +92,7 @@ const findUserByUsername = async (username) => {
  * @returns {Object|null} - Objeto con los datos del usuario o null si no existe.
  */
 const findUserById = async (id) => {
-  const result = await db.query(
+  const result = await pool.query(
     'SELECT id, username, nombre, role, created_at FROM users WHERE id = $1',
     [id]
   );

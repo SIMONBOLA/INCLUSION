@@ -1,31 +1,10 @@
-/* ========= VARIABLES GLOBALES ========= */
-:root {
-  --color-bg: #0f0f0f;
-  --color-surface: #1a1a1a;
-  --color-border: #333333;
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #cccccc;
-  --color-accent: #888888;
-  --main-spacing: 2rem;
-  --content-max-width: 1400px;
-  --color-gradient: linear-gradient(145deg, #0f0f0f, #1a1a1a);
-  --font-family: 'Inter', 'Helvetica Neue', sans-serif;
-  --spacing: 1.5rem;
-  --transition: all 0.3s ease-in-out;
-  --sidebar-width: 250px;
-  --sidebar-width-collapsed: 70px;
-  --header-height: 80px;
-  --primary-color: #2563eb;
-  --secondary-color: #1e40af;
-  --background-color: #1a1a1a;
-  --card-background: #2d2d2d;
-  --transition-speed: 0.3s;
-  --text-primary: #ffffff;
-  --text-secondary: #a0aec0;
-  --border-color: #404040;
-}
+@import './styles/theme.css';
+@import './styles/components.css';
+@import './styles/login.css';
+@import './styles/charts.css';
+@import './styles/dashboard.css';
 
-/* Reset y estilos base */
+/* Estilos específicos de la aplicación */
 * {
   margin: 0;
   padding: 0;

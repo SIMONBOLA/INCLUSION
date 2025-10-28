@@ -9,6 +9,10 @@
   --sombra-suave: 0 2px 4px rgba(0, 0, 0, 0.1);
   --radio-borde: 8px;
   --transicion: all 0.3s ease;
+  --color-exito: #2ecc71;
+  --color-advertencia: #f1c40f;
+  --color-error: #e74c3c;
+  --color-info: #3498db;
 }
 
 /* Contenedor principal */
@@ -25,15 +29,37 @@
   padding: 1rem;
 }
 
-/* Campo de búsqueda */
-.buscador-estudiantes {
-  width: 100%;
+/* Contenedor de filtros */
+.filtros-container {
+  margin-bottom: 1rem;
+}
+
+.filtros-secundarios {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+/* Campo de búsqueda y selectores */
+.buscador-estudiantes,
+.selector-grupo,
+.selector-orden {
   padding: 0.75rem 1rem;
   border: 1px solid var(--color-borde);
   border-radius: var(--radio-borde);
   font-size: 0.95rem;
   transition: var(--transicion);
-  margin-bottom: 1rem;
+  background-color: white;
+}
+
+.buscador-estudiantes {
+  width: 100%;
+}
+
+.selector-grupo,
+.selector-orden {
+  flex: 1;
+  cursor: pointer;
 }
 
 .buscador-estudiantes:focus {
@@ -86,17 +112,86 @@
 .info-estudiante {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.info-principal {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-secundaria {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .nombre-estudiante {
   font-weight: 600;
   color: var(--color-texto);
-  margin-bottom: 0.25rem;
+  font-size: 1rem;
 }
 
-.email-estudiante {
+.username-estudiante {
   font-size: 0.85rem;
   color: #666;
+}
+
+.grupo-estudiante {
+  font-size: 0.85rem;
+  color: var(--color-info);
+  background-color: rgba(52, 152, 219, 0.1);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.promedio-estudiante {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-secundario);
+}
+
+.estado-online {
+  font-size: 0.75rem;
+  color: #2ecc71;
+  margin-top: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.estado-online::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #2ecc71;
+  border-radius: 50%;
+}
+
+.avatar-estudiante.online {
+  position: relative;
+}
+
+.avatar-estudiante.online::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #2ecc71;
+  border-radius: 50%;
+  border: 2px solid white;
+  bottom: -2px;
+  right: -2px;
+}
+
+.no-resultados {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
+  font-style: italic;
 }
 
 /* Indicador de carga */
