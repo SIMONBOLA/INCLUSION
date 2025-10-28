@@ -10,20 +10,22 @@ const registerRouter = require('./controllers/register')
 const middleware = require('./utils/middleware')
 const logger = require('./utils/logger')
 
-// Middlewares
+// Middlewares base
 app.use(cors({
   origin: process.env.FRONTEND_URL || 'http://localhost:5173',
   credentials: true
 }))
 app.use(express.json())
 app.use(middleware.requestLogger)
+
+// Rutas que NO requieren autenticación
+app.use('/api/estudiantes', rutasEstudiantes) // Sin autenticación para estudiantes
+
+// Rutas que SÍ requieren autenticación
 app.use(middleware.tokenExtractor)
 app.use(middleware.userExtractor)
-
-// Routes
 app.use('/api/usuarios', rutasUsuarios)
 app.use('/api/comentarios', rutasComentarios)
-app.use('/api/estudiantes', rutasEstudiantes)
 app.use('/api/login', loginRouter)
 app.use('/api/register', registerRouter)
 

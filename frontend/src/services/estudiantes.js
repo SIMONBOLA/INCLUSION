@@ -123,9 +123,70 @@ const obtenerNotas = async (id) => {
   }
 };
 
+const obtenerHistorial = async (id) => {
+  if (!id) {
+    console.warn('ID de estudiante no proporcionado para historial, usando datos mock');
+    return estudiantesMock[0].historial;
+  }
+
+  try {
+    if (!isTokenValid()) {
+      const estudiante = estudiantesMock.find(e => e.id === parseInt(id));
+      return estudiante ? estudiante.historial : [];
+    }
+
+    const token = window.localStorage.getItem('userToken');
+    const response = await axios.get(`${baseUrl}/${id}/historial`, {
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    });
+
+    return response.data.ok ? response.data.data : [];
+  } catch (error) {
+    console.warn('Error al obtener historial, usando datos mock:', error.message);
+    const estudiante = estudiantesMock.find(e => e.id === parseInt(id));
+    return estudiante ? estudiante.historial : [];
+  }
+};
+
+const obtenerProgreso = async (id) => {
+  if (!id) {
+    console.warn('ID de estudiante no proporcionado para progreso, usando datos mock');
+    return estudiantesMock[0].progreso;
+  }
+
+  try {
+    if (!isTokenValid()) {
+      const estudiante = estudiantesMock.find(e => e.id === parseInt(id));
+      return estudiante ? estudiante.progreso : null;
+    }
+
+    const token = window.localStorage.getItem('userToken');
+    const response = await axios.get(`${baseUrl}/${id}/progreso`, {
+      headers: {
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    });
+
+    return response.data.ok ? response.data.data : null;
+  } catch (error) {
+    console.warn('Error al obtener progreso, usando datos mock:', error.message);
+    const estudiante = estudiantesMock.find(e => e.id === parseInt(id));
+    return estudiante ? estudiante.progreso : null;
+  }
+};
+
+// API pública del servicio
 export default {
   obtenerEstudiantes,
   obtenerEstudiantePorId,
   actualizarEstudiante,
-  obtenerNotas
+  obtenerNotas,
+  obtenerHistorial,
+  obtenerProgreso,
+  // Exponer función de validación de token para otros servicios
+  isTokenValid
 };

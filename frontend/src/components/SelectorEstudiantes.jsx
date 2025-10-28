@@ -13,19 +13,18 @@ const SelectorEstudiantes = ({ onSeleccionEstudiante, usuarioActual }) => {
     const obtenerEstudiantes = async () => {
       try {
         setCargando(true)
-        const response = await estudiantesService.obtenerEstudiantes()
-        setEstudiantes(response.data || [])
+        const data = await estudiantesService.obtenerEstudiantes()
+        setEstudiantes(data || [])
       } catch (error) {
         console.error('Error al obtener estudiantes:', error)
+        // Los datos mock ya están incluidos en el servicio como fallback
       } finally {
         setCargando(false)
       }
     }
 
-    if (usuarioActual?.role === 'profesor') {
-      obtenerEstudiantes()
-    }
-  }, [usuarioActual])
+    obtenerEstudiantes()
+  }, [])
 
   const grupos = ['todos', ...new Set(estudiantes.map(e => e.grupo))].sort()
 
@@ -47,7 +46,7 @@ const SelectorEstudiantes = ({ onSeleccionEstudiante, usuarioActual }) => {
       }
     })
 
-  return usuarioActual?.role === 'profesor' ? (
+  return (
     <div className="selector-estudiantes">
       <div className="contenedor-selector">
         <div className="filtros-container">
@@ -123,7 +122,7 @@ const SelectorEstudiantes = ({ onSeleccionEstudiante, usuarioActual }) => {
         )}
       </div>
     </div>
-  ) : null
+  )
 }
 
 export default SelectorEstudiantes
