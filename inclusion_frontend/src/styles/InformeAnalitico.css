@@ -1,0 +1,108 @@
+/* Mensaje de éxito para informe analítico */
+.mensaje-exito.informe-analitico-exito {
+  position: fixed;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ECFDF5;
+  color: #065F46;
+  border: 1px solid #10b981;
+  padding: 16px 32px;
+  border-radius: 16px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(16,185,129,0.08);
+  z-index: 2000;
+  animation: fadeInOut 3s forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translateX(-50%) scale(0.95); }
+  10% { opacity: 1; transform: translateX(-50%) scale(1); }
+  90% { opacity: 1; transform: translateX(-50%) scale(1); }
+  100% { opacity: 0; transform: translateX(-50%) scale(0.95); }
+}
+.informe-analitico-container {
+  background: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: var(--sombra);
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+}
+
+#informe-analitico {
+  width: 100%;
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e0 #f8fafc;
+}
+
+/* Estilos del scrollbar para Chrome/Safari */
+#informe-analitico::-webkit-scrollbar {
+  width: 8px;
+}
+
+#informe-analitico::-webkit-scrollbar-track {
+  background: #f8fafc;
+  border-radius: 4px;
+}
+
+#informe-analitico::-webkit-scrollbar-thumb {
+  background-color: #cbd5e0;
+  border-radius: 4px;
+  border: 2px solid #f8fafc;
+}
+#informe-analitico h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+.grafica-analitica {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 1.5rem;
+}
+.grafica-analitica h3 {
+  margin-bottom: 0.5rem;
+}
+.observaciones-materia {
+  background: #f3f4f6;
+  padding: 0.7rem;
+  border-radius: 8px;
+  margin: 0.7rem 0;
+}
+.analisis-profesor {
+  margin-top: 0.7rem;
+}
+.analisis-profesor textarea {
+  width: 100%;
+  min-height: 60px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  padding: 0.5rem;
+  font-size: 1rem;
+  resize: vertical;
+}
+.btn-descargar {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.btn-descargar:hover {
+  background: #1d4ed8;
+}
+.informe-analitico-container, #informe-analitico, .grafica-analitica, .observaciones-materia, .analisis-profesor, .analisis-profesor textarea {
+  color: #111 !important;
+}

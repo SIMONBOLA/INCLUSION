@@ -1,0 +1,79 @@
+/* Layout para página de notas */
+.pagina-notas-flex {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.columna-izquierda {
+  flex: 1 1 350px;
+  max-width: 400px;
+}
+
+.columna-derecha {
+  flex: 2 1 0;
+  min-width: 0;
+}
+.messagesuccess {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #4ade80;
+  color: #052e16;
+  border: 1px solid #15803d;
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 1000;
+  opacity: 1;
+  animation: fadeOut 5s forwards;
+}
+
+.messageerror {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #f87171;
+  color: #450a0a;
+  border: 1px solid #b91c1c;
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 1000;
+  opacity: 1;
+  animation: fadeOut 5s forwards;
+  top: 20px;
+  right: 20px;
+  background-color: #ef4444;
+  color: white;
+  border: 1px solid #b91c1c;
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 14px;
+  z-index: 1000;
+  opacity: 1;
+  animation: fadeOut 5s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}

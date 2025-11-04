@@ -1,0 +1,49 @@
+/* Página de notas */
+.pagina-notas-flex {
+  display: flex;
+  gap: 2.5rem;
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: calc(100vh - 64px);
+}
+
+/* Columna izquierda */
+.columna-izquierda {
+  width: 300px;
+  min-width: 300px;
+  flex-shrink: 0;
+}
+
+/* Módulo de notas */
+.modulo-notas {
+  background: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+  padding: 2rem;
+  width: 100%;
+  min-width: 800px;
+  max-width: none;
+  box-sizing: border-box;
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e0 #f8fafc;
+}
+
+/* Estilos del scrollbar para Chrome/Safari */
+.modulo-notas::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modulo-notas::-webkit-scrollbar-track {
+  background: #f8fafc;
+  border-radius: 4px;
+}
+
+.modulo-notas::-webkit-scrollbar-thumb {
+  background-color: #cbd5e0;
+  border-radius: 4px;
+  border: 2px solid #f8fafc;
+}

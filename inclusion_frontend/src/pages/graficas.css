@@ -1,0 +1,117 @@
+/* === LAYOUT PRINCIPAL (Notas + Gráficas) === */
+.pagina-graficas {
+  padding: 2rem;
+  background: #f8fafc;
+  min-height: 100vh;
+}
+
+.layout-graficas {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* === COLUMNA IZQUIERDA: Selector de estudiantes === */
+.selector-container {
+  flex: 0 0 300px;
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  height: fit-content;
+}
+
+/* === COLUMNA DERECHA: Notas + Gráficas (estilo igualado) === */
+.graficas-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* === TARJETAS UNIFICADAS (Mis Notas y Mis Gráficas) === */
+.modulo-graficas,
+.modulo-notas {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  width: 100%;
+  max-width: 1400px;
+  min-width: 320px;
+  margin-bottom: 1.5rem;
+  align-self: center;
+}
+
+/* === ENCABEZADO ESTILO TARJETA NOTAS === */
+.encabezado-graficas h2 {
+  color: #1e293b;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* === CONTENEDOR DE LA GRÁFICA === */
+.contenedor-grafica {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  margin-bottom: 2rem;
+}
+
+/* === MENSAJES VACÍOS O CARGANDO === */
+.cargando,
+.mensaje-seleccion,
+.sin-datos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  background: #f7fafc;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #2d3748;
+}
+
+/* === PROMEDIO GENERAL === */
+.promedio-general {
+  text-align: center;
+  padding: 1.5rem;
+  background: #f7fafc;
+  border-radius: 12px;
+}
+
+.promedio-general h3 {
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+}
+
+.valor-promedio {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #4a90e2;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .layout-graficas {
+    flex-direction: column;
+  }
+
+  .selector-container {
+    width: 100%;
+  }
+
+  .modulo-graficas,
+  .modulo-notas {
+    padding: 1rem;
+  }
+
+  .contenedor-grafica {
+    height: 300px;
+  }
+}
+
+canvas {
+  max-width: 100% !important;
+  height: auto !important;
+}

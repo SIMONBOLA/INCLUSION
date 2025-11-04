@@ -1,0 +1,368 @@
+.sobre-nosotros-page {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 2rem;
+  color: #333;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-height: 90vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #656c7c #f8fafc;
+}
+
+.sobre-nosotros-page::-webkit-scrollbar {
+  width: 8px;
+}
+
+.sobre-nosotros-page::-webkit-scrollbar-track {
+  background: #f8fafc;
+  border-radius: 4px;
+}
+
+.sobre-nosotros-page::-webkit-scrollbar-thumb {
+  background-color: #2563eb;
+  border-radius: 4px;
+  border: 2px solid #f8fafc;
+}
+
+.sobre-nosotros-page::-webkit-scrollbar-thumb:hover {
+  background-color: #1d4ed8;
+}
+
+.sobre-nosotros-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.sobre-nosotros-header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.header-description {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sobre-nosotros-main section {
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: #f8fafc;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+}
+
+.sobre-nosotros-main section:hover {
+  transform: translateY(-5px);
+}
+
+.sobre-nosotros-main h2 {
+  color: #2563eb;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.sobre-nosotros-main h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: #2563eb;
+  border-radius: 2px;
+}
+
+.sobre-nosotros-valores ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.sobre-nosotros-valores li {
+  padding: 1.5rem;
+  background: white;
+  border-radius: 0.5rem;
+  border-left: 4px solid #2563eb;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 1rem;
+}
+
+.sobre-nosotros-valores strong {
+  color: #2563eb;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.equipo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.equipo-card {
+  text-align: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 1rem;
+  transition: transform 0.3s ease;
+  border: 1px solid rgba(37, 99, 235, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.equipo-card:hover {
+  transform: translateY(-10px);
+}
+
+.equipo-card h3 {
+  color: #2563eb;
+  margin: 1rem 0 0.5rem;
+}
+
+.equipo-card p {
+  color: #64748b;
+}
+
+.vision-quote {
+  font-size: 1.5rem;
+  text-align: center;
+  color: #2563eb;
+  margin-top: 2rem;
+  font-style: italic;
+  padding: 2rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #2563eb;
+}
+
+.contacto-info {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.contacto-link {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  border-radius: 2rem;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+}
+
+.contacto-link:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Pantallas extra grandes (escritorio grande) */
+@media screen and (min-width: 1400px) {
+  .sobre-nosotros-page {
+    max-width: 1320px;
+    padding: 3rem;
+  }
+
+  .sobre-nosotros-header h1 {
+    font-size: 3.5rem;
+  }
+
+  .equipo-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+}
+
+/* Pantallas grandes (escritorio) */
+@media screen and (min-width: 1200px) and (max-width: 1399px) {
+  .sobre-nosotros-page {
+    max-width: 1140px;
+    padding: 2.5rem;
+  }
+
+  .sobre-nosotros-header h1 {
+    font-size: 3rem;
+  }
+
+  .equipo-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+/* Pantallas medianas (tablets grandes) */
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+  .sobre-nosotros-page {
+    max-width: 960px;
+    padding: 2rem;
+  }
+
+  .sobre-nosotros-header h1 {
+    font-size: 2.75rem;
+  }
+
+  .equipo-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Pantallas medianas (tablets) */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .sobre-nosotros-page {
+    max-width: 720px;
+    padding: 1.5rem;
+  }
+
+  .sobre-nosotros-header h1 {
+    font-size: 2.5rem;
+  }
+
+  .equipo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .sobre-nosotros-valores ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Pantallas pequeñas (móviles en landscape) */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+  .sobre-nosotros-page {
+    max-width: 540px;
+    padding: 1.25rem;
+  }
+
+  .sobre-nosotros-header h1 {
+    font-size: 2.25rem;
+  }
+
+  .header-description {
+    font-size: 1rem;
+  }
+
+  .sobre-nosotros-main section {
+    padding: 1.5rem;
+  }
+
+  .equipo-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .sobre-nosotros-valores ul {
+    grid-template-columns: 1fr;
+  }
+
+  .vision-quote {
+    font-size: 1.25rem;
+  }
+}
+
+/* Pantallas muy pequeñas (móviles) */
+@media screen and (max-width: 575px) {
+  .sobre-nosotros-page {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .sobre-nosotros-header {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+  }
+
+  .sobre-nosotros-header h1 {
+    font-size: 2rem;
+  }
+
+  .header-description {
+    font-size: 0.9rem;
+  }
+
+  .sobre-nosotros-main section {
+    padding: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .sobre-nosotros-main h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .sobre-nosotros-valores ul {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .equipo-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .vision-quote {
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+  }
+
+  .contacto-link {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .equipo-card {
+    padding: 1.5rem;
+  }
+}
+
+/* Ajustes de orientación para dispositivos móviles */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  .sobre-nosotros-header {
+    padding: 1rem;
+  }
+
+  .sobre-nosotros-main section {
+    margin-bottom: 1.5rem;
+  }
+
+  .equipo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Soporte para pantallas de alta densidad de píxeles */
+@media screen and (-webkit-min-device-pixel-ratio: 2),
+       screen and (min-resolution: 192dpi) {
+  .sobre-nosotros-header {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  }
+}
+
+/* Preferencias de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .sobre-nosotros-main section,
+  .equipo-card {
+    transition: none;
+  }
+}

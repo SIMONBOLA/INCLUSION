@@ -1,0 +1,153 @@
+/* Variables */
+:root {
+  --color-fondo: #ffffff;
+  --color-primario: #4a90e2;
+  --color-texto: #2d3748;
+  --color-borde: #e2e8f0;
+  --sombra: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* CONTENEDOR PRINCIPAL */
+.pagina-graficas {
+  display: flex;
+  gap: 2.5rem;
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: calc(100vh - 64px);
+}
+
+/* Selector de estudiantes */
+.selector-container {
+  width: 300px;
+  min-width: 300px;
+  flex-shrink: 0;
+}
+
+/* CONTENEDOR DE GRÁFICAS */
+.graficas-content {
+  background: var(--color-fondo);
+  border: 1px solid var(--color-borde);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--sombra);
+  width: 100%;
+  min-width: 800px;
+  max-width: none;
+  box-sizing: border-box;
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e0 #f8fafc;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Módulo de gráficas */
+.modulo-graficas {
+  background: var(--color-fondo);
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 900px;
+  min-width: 400px;
+  align-self: center;
+}
+
+/* Título */
+.encabezado-graficas h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  color: var(--color-texto);
+  font-weight: 700;
+  text-align: left;  /* ← Corrige la alineación */
+}
+
+/* Contenedor gráfica */
+.contenedor-grafica {
+  position: relative;
+  margin-bottom: 2rem;
+  height: 400px;
+}
+
+/* Estados */
+.cargando,
+.mensaje-seleccion,
+.sin-datos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 280px;
+  color: var(--color-texto);
+  font-weight: 500;
+  text-align: center;
+  background: #f7fafc;
+  border-radius: 8px;
+}
+
+/* Promedio */
+.promedio-general {
+  text-align: center;
+  padding: 1.5rem;
+  background: #f7fafc;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.promedio-general h3 {
+  color: var(--color-texto);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.valor-promedio {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--color-primario);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsiveness */
+@media (max-width: 1024px) {
+  .pagina-graficas {
+    flex-direction: column;
+  }
+  
+  .selector-container {
+    width: 100%;
+    position: relative;
+    top: 0;
+  }
+
+  .graficas-content {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .contenedor-grafica {
+    height: 300px;
+  }
+
+  .valor-promedio {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contenedor-grafica {
+    height: 250px;
+  }
+
+  .promedio-general {
+    padding: 1rem;
+  }
+}
