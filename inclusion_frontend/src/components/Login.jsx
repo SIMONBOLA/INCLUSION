@@ -1,4 +1,4 @@
-import { useState } from "react"; // Añade este import
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 import "../login2.css";
@@ -10,6 +10,30 @@ const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const emojis = ['🎓', '📚', '✏️', '📝', '🎯', '💫', '💻', '📊', '💼', '📈'];
+
+  useEffect(() => {
+    const container = document.querySelector('.emoji-container');
+    if (!container) return;
+
+    // Limpiar el contenedor
+    container.innerHTML = '';
+
+    // Crear nuevos emojis
+    emojis.forEach((emoji) => {
+      const element = document.createElement('div');
+      element.className = 'emoji';
+      element.textContent = emoji;
+      element.style.setProperty('--translate-x', `${Math.random() * 100 - 50}vw`);
+      element.style.setProperty('--rotate', `${Math.random() * 360}deg`);
+      element.style.left = `${Math.random() * 100}vw`;
+      container.appendChild(element);
+    });
+
+    return () => {
+      container.innerHTML = '';
+    };
+  }, []);
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -83,40 +107,44 @@ const LoginForm = () => {
 
   return (
     <div className="auth-container">
-      {error && <div className="error-message">{error}</div>}
+      <div className="emoji-container"></div>
       
-      <div className="welcome-section">
-        <h1>Bienvenido a <span>INCLUSION</span></h1>
-      </div>
+      <div className="auth-content">
+        <div className="welcome-section">
+          <h1>Bienvenido a <span>INCLUSION</span></h1>
+          <p className="welcome-text">
+            Inicia sesión ahora
+          </p>
+        </div>
 
-      <div className="auth-form-container">
         <div className="auth-form">
-          <h3>Iniciar sesión</h3>
+          {error && <div className="error-message">{error}</div>}
+          
           <form onSubmit={handleLogin}>
-            <div className="form-group">
-              <label htmlFor="username">Username</label>
+            <div className="form-group username">
               <input
                 id="username"
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 className="form-input"
+                placeholder="Username or Email"
                 required
               />
             </div>
-            <div className="form-group">
-              <label htmlFor="password">Contraseña</label>
+            <div className="form-group password">
               <input
                 id="password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 className="form-input"
+                placeholder="Password"
                 required
               />
             </div>
             <button type="submit" className="login-button">
-              Iniciar sesión
+              Log in
             </button>
           </form>
         </div>
